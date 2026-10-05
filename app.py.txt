@@ -1,0 +1,85 @@
+import streamlit as st
+import streamlit.components.v1 as components
+
+st.set_page_config(page_title="Minta Maaf Dari Hendi ❤️", page_icon="🥺", layout="centered")
+
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background: linear-gradient(135deg, #ffe6eb 0%, #ffd1dc 100%);
+    }
+    .main-card {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        text-align: center;
+        max-width: 450px;
+        margin: auto;
+    }
+    h1 {
+        color: #ff4b4b;
+        font-size: 26px;
+    }
+    p {
+        font-size: 16px;
+        color: #444;
+    }
+    </style>
+""",
+    unsafe_allow_html=True,
+)
+
+st.markdown(
+    """
+<div class="main-card">
+    <h1>Maafin Hendi Ya Ayang... 🥺❤️</h1>
+    <p>Hendi beneran minta maaf atas kesalahan Hendi kemarin. Hendi nggak ada maksud buat bikin kamu kesel atau sedih.</p>
+    <p><b>Kamu mau maafin Hendi kan? 🥺</b></p>
+</div>
+""",
+    unsafe_allow_html=True,
+)
+
+interactive_html = """
+<div style="text-align: center; position: relative; height: 180px; width: 100%; margin-top: 25px;">
+    <button id="yesBtn" onclick="maafin()" style="background-color: #28a745; color: white; border: none; padding: 12px 28px; font-size: 18px; font-weight: bold; border-radius: 25px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.15); margin-right: 15px;">
+        Dimaafin ❤️
+    </button>
+
+    <button id="noBtn" style="background-color: #dc3545; color: white; border: none; padding: 12px 28px; font-size: 18px; font-weight: bold; border-radius: 25px; position: absolute; cursor: pointer; transition: 0.15s ease;">
+        Nggak! 😜
+    </button>
+</div>
+
+<div id="result" style="display: none; text-align: center; background: white; padding: 20px; border-radius: 15px; margin-top: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+    <h2 style="color: #ff4b4b; margin: 0;">Makasih Ayang! 🥰🎉</h2>
+    <p style="font-size: 16px; color: #444; margin-top: 10px;">
+        Makasih udah mau maafin Hendi! Nanti Hendi jemput ya, kita jajan makanan favorit kamu! 🍦🍟❤️️
+    </p>
+</div>
+
+<script>
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+    const result = document.getElementById('result');
+
+    function moveButton() {
+        const x = Math.floor(Math.random() * 200) - 100;
+        const y = Math.floor(Math.random() * 100) - 50;
+        noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    noBtn.addEventListener('mouseover', moveButton);
+    noBtn.addEventListener('touchstart', moveButton);
+
+    function maafin() {
+        noBtn.style.display = 'none';
+        yesBtn.style.display = 'none';
+        result.style.display = 'block';
+    }
+</script>
+"""
+
+components.html(interactive_html, height=300)
